@@ -1,4 +1,4 @@
-# PPP_2023_MultiStage
+# PPP_2023 - MultiStage
 The 'MultiStage' game for Professional Practice and Placement 2023
 
 'MultiStage' is a 2-stage speedrunning game where the player's main objective is to complete each stage as fast as possible.
