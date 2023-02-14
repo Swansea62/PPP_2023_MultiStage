@@ -4,44 +4,47 @@ using UnityEngine;
 
 public class Movement : MonoBehaviour
 {
-    public CharacterController controller;
+    [Header("Movement")]
+    public float moveSpeed;
+    
+    public Transform orientation;
 
-    public float speed = 12f;
-    public float gravity = -9.81f;
-    public float jump = 1f;
+    float horizontalInput;
+    float verticalInput;
 
-    public Transform groundCheck;
-    public float groundDistance = 0.4f;
-    public LayerMask groundMask;
+    Vector3 moveDirection;
 
-    Vector3 velocity;
-    bool isGrounded;
+    Rigidbody rb;
 
-    // Update is called once per frame
-    void Update()
+    private void Start()
     {
-        isGrounded = Physics.CheckSphere(groundCheck.position, groundDistance, groundMask);
+        rb = GetComponent<Rigidbody>();
+        rb.freezeRotation = true;
+    }
 
-        if(isGrounded && velocity.y < 0)
-        {
-            velocity.y = -2f;
-        }
+    private void Update()
+    {
+        MyInput();
+    }
 
-        float x = Input.GetAxis("Horizontal");
-        float z = Input.GetAxis("Vertical");
+    private void FixedUpdate()
+    {
+        MovePlayer();
+    }
 
-        Vector3 move = transform.right * x + transform.forward * z;
+    private void MyInput()
+    {
+        horizontalInput = Input.GetAxisRaw("Horizontal");
+        verticalInput = Input.GetAxisRaw("Vertical");
+    }
 
-        controller.Move(move * speed * Time.deltaTime);
 
-        if(Input.GetButtonDown("Jump") && isGrounded)
-        {
-            velocity.y = Mathf.Sqrt(jump * -2f * gravity);
-        }
+    private void MovePlayer()
+    {
+        //calculating movement direction
+        moveDirection = orientation.forward * verticalInput + orientation.right * horizontalInput;
 
-        velocity.y += gravity * Time.deltaTime;
-
-        controller.Move(velocity * Time.deltaTime);
+        rb.AddForce(moveDirection.normalized * moveSpeed * 10f, ForceMode.Force);
     }
 }
 
