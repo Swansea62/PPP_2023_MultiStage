@@ -11,6 +11,8 @@ public class Movement : MonoBehaviour
     private float moveSpeed;
     public float walkSpeed;
     public float sprintSpeed;
+    public float wallrunSpeed;
+    public bool wallrunning;
 
     public float groundDrag;
 
@@ -55,6 +57,7 @@ public class Movement : MonoBehaviour
     {
         walking,
         sprinting,
+        wallrunning,
         crouching,
         air
     }
@@ -128,6 +131,13 @@ public class Movement : MonoBehaviour
 
     private void StateHandler()
     {
+        // Wallrunning Mode
+        if (wallrunning)
+        {
+            state = MovementState.wallrunning;
+            moveSpeed = wallrunSpeed;
+        }
+
         // Crouching Mode
         if (Input.GetKey(crouchKey))
         {
