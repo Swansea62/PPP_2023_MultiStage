@@ -119,15 +119,10 @@ public class Movement : MonoBehaviour
 
     private void Jump()
     {
-        Debug.Log("Hello there");
         // Reset Y velocity
         rb.velocity = new Vector3(rb.velocity.x, 0f, rb.velocity.z);
 
         rb.AddForce(transform.up * jumpForce, ForceMode.Impulse);
-        if(Input.GetKeyDown(jumpKey) == true)
-        {
-            Debug.Log("Hello there");
-        }
     }
     private void JumpReset()
     {
