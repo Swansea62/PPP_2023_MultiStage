@@ -298,7 +298,7 @@ GameObject:
   - component: {fileID: 32593360}
   - component: {fileID: 32593359}
   - component: {fileID: 32593361}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FirstPersonPlayer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -329,7 +329,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 32593358}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 3.13, z: 0}
+  m_LocalPosition: {x: -4, y: 1.5, z: 2.8400002}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 875406082}
@@ -351,7 +351,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 097f9f3e164fb834a8743c81f5e91078, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  moveSpeed: 5
+  moveSpeed: 7
+  groundDrag: 5
+  jumpForce: 12
+  jumpCooldown: 0.25
+  airMultiply: 0.4
+  jumpReady: 0
+  jumpKey: 32
+  playerHeight: 3
+  isGround:
+    serializedVersion: 2
+    m_Bits: 128
   orientation: {fileID: 1679490353}
 --- !u!1 &185027156
 GameObject:
@@ -365,7 +375,7 @@ GameObject:
   - component: {fileID: 185027160}
   - component: {fileID: 185027159}
   - component: {fileID: 185027158}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: FPSCamera
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1182,7 +1192,7 @@ GameObject:
   - component: {fileID: 875406085}
   - component: {fileID: 875406084}
   - component: {fileID: 875406083}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Capsule
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1212,7 +1222,7 @@ CapsuleCollider:
   m_GameObject: {fileID: 875406081}
   m_Material: {fileID: 0}
   m_IsTrigger: 0
-  m_Enabled: 0
+  m_Enabled: 1
   m_Radius: 0.5
   m_Height: 2
   m_Direction: 1
@@ -1275,7 +1285,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 921650932}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: GroundCheck
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1878,7 +1888,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1679490353}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Orientation
   m_TagString: Untagged
   m_Icon: {fileID: 0}
