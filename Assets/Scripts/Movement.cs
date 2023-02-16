@@ -196,7 +196,10 @@ public class Movement : MonoBehaviour
         }
 
         // Turn off gravity while on slope
-        rb.useGravity = !OnSlope();
+        if (!wallrunning)
+        {
+            rb.useGravity = !OnSlope();
+        }
     }
 
     private void SpeedControl()
