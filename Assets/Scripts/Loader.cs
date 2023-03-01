@@ -9,6 +9,7 @@ public static class Loader
         MultiStage_Level_1,
         GameOverScreen,
         MainMenuScreen,
+        OptionsScreen,
         Scoreboard,
         Controls
     }
