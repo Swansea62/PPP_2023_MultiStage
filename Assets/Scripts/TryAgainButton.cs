@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class TrygainButton : MonoBehaviour, IPointerClickHandler
+public class TryAgainButton : MonoBehaviour, IPointerClickHandler
 {
     public void OnPointerClick(PointerEventData pointerEventData)
     {
