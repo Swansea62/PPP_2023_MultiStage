@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Movement : MonoBehaviour
 {
@@ -77,7 +78,7 @@ public class Movement : MonoBehaviour
         // Ground Check
         grounded = Physics.Raycast(transform.position, Vector3.down, playerHeight * 0.5f + 0.3f, isGround);
         
-        Debug.Log("Update: " + grounded);
+        //Debug.Log("Update: " + grounded);
         
         MyInput();
         SpeedControl();
@@ -257,6 +258,15 @@ public class Movement : MonoBehaviour
     private Vector3 GetSlopeMoveDirection()
     {
         return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
+    }
+
+
+    private void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "PitFloor")
+        {
+            Loader.Load(Loader.Scene.MultiStage_Level_1);
+        }
     }
 }
 
