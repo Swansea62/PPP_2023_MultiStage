@@ -9,9 +9,18 @@ EditorBuildSettings:
     path: Assets/Scenes/WorkshopScene.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   - enabled: 1
+    path: Assets/Scenes/MainMenuScreen.unity
+    guid: 4d1ada6821477044bb78da09167f1136
+  - enabled: 1
     path: Assets/Scenes/MultiStage_Level_1.unity
     guid: caebd4bc9891a524eb77cdef1751bf0e
   - enabled: 1
     path: Assets/Scenes/GameOverScreen.unity
     guid: f84c8a3dbfbc3844eae3b19c18f91261
+  - enabled: 1
+    path: Assets/Scenes/Controls.unity
+    guid: d018eee1d7394c54cb4e9bf7bab2f098
+  - enabled: 1
+    path: Assets/Scenes/Scoreboard.unity
+    guid: 2391629133ef3c44ea9cffa2187e1e76
   m_configObjects: {}

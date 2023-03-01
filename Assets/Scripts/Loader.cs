@@ -8,6 +8,9 @@ public static class Loader
     public enum Scene {
         MultiStage_Level_1,
         GameOverScreen,
+        MainMenuScreen,
+        Scoreboard,
+        Controls
     }
 
 
