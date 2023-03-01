@@ -265,7 +265,7 @@ public class Movement : MonoBehaviour
     {
         if (collision.gameObject.name == "PitFloor")
         {
-            Loader.Load(Loader.Scene.MultiStage_Level_1);
+            Loader.Load(Loader.Scene.GameOverScreen);
         }
     }
 }
