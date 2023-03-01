@@ -9,7 +9,7 @@ public class QuitButton : MonoBehaviour, IPointerClickHandler
     {
         if (pointerEventData.button == PointerEventData.InputButton.Left)
         {
-            Debug.Log("Application Quit");
+            Debug.Log("Yuo have quit the application");
             Application.Quit();
         }
     }
