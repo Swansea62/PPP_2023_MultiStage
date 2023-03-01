@@ -15,6 +15,10 @@ public class Movement : MonoBehaviour
     public float sprintSpeed;
     public float wallrunSpeed;
     public bool wallrunning;
+    public float slidingSpeed;
+
+    private float desiredMoveSpeed;
+    private float lastDesiredMoveSpeed;
 
     public float groundDrag;
 
@@ -61,8 +65,11 @@ public class Movement : MonoBehaviour
         sprinting,
         wallrunning,
         crouching,
+        sliding,
         air
     }
+
+    public bool sliding;
 
     private void Start()
     {
@@ -137,27 +144,42 @@ public class Movement : MonoBehaviour
         if (wallrunning)
         {
             state = MovementState.wallrunning;
-            moveSpeed = wallrunSpeed;
+            desiredMoveSpeed = wallrunSpeed;
+        }
+
+        // Sliding Mode
+        else if (sliding)
+        {
+            state = MovementState.sliding;
+
+            if (OnSlope() && rb.velocity.y < 0.1f)
+            {
+                desiredMoveSpeed = slidingSpeed;
+            }
+            else
+            {
+                desiredMoveSpeed = sprintSpeed;
+            }
         }
 
         // Crouching Mode
-        if (Input.GetKey(crouchKey))
+        else if (Input.GetKey(crouchKey))
         {
             state = MovementState.crouching;
-            moveSpeed = crouchSpeed;
+            desiredMoveSpeed = crouchSpeed;
         }
         // Sprinting Mode
-        if (grounded && Input.GetKey(sprintKey))
+        else if (grounded && Input.GetKey(sprintKey))
         {
             state = MovementState.sprinting;
-            moveSpeed = sprintSpeed;
+            desiredMoveSpeed = sprintSpeed;
         }
 
         // Walking Mode
         else if (grounded)
         {
             state = MovementState.walking;
-            moveSpeed = walkSpeed;
+            desiredMoveSpeed = walkSpeed;
         }
 
         // Air Mode
@@ -165,6 +187,36 @@ public class Movement : MonoBehaviour
         {
             state = MovementState.air;
         }
+
+        // Check if desiredMoveSpeed has changd drastically
+        if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0)
+        {
+            StopAllCoroutines();
+            StartCoroutine(SmoothlyLerpMoveSpeed());
+        }
+        else
+        {
+            moveSpeed = desiredMoveSpeed;
+        }
+
+        lastDesiredMoveSpeed = desiredMoveSpeed;
+    }
+
+    private IEnumerator SmoothlyLerpMoveSpeed()
+    {
+        // Smoothly lerp moveSpeed to desired value
+        float time = 0;
+        float difference = Mathf.Abs(desiredMoveSpeed - moveSpeed);
+        float startValue = moveSpeed;
+
+        while (time < difference)
+        {
+            moveSpeed = Mathf.Lerp(startValue, desiredMoveSpeed, time / difference);
+            time += Time.deltaTime;
+            yield return null;
+        }
+
+        moveSpeed = desiredMoveSpeed;
     }
 
 
@@ -177,7 +229,7 @@ public class Movement : MonoBehaviour
         // On Slope
         if (OnSlope() && !exitSlope)
         {
-            rb.AddForce(GetSlopeMoveDirection() * moveSpeed * 20f, ForceMode.Force);
+            rb.AddForce(GetSlopeMoveDirection(moveDirection) * moveSpeed * 20f, ForceMode.Force);
 
             if (rb.velocity.y > 0)
             {
@@ -245,7 +297,7 @@ public class Movement : MonoBehaviour
         exitSlope = false;
     }
 
-    private bool OnSlope()
+    public bool OnSlope()
     {
         if (Physics.Raycast(transform.position, Vector3.down, out slopeHit, playerHeight * 0.5f + 0.3f))
         {
@@ -256,9 +308,9 @@ public class Movement : MonoBehaviour
         return false;
     }
 
-    private Vector3 GetSlopeMoveDirection()
+    public Vector3 GetSlopeMoveDirection(Vector3 direction)
     {
-        return Vector3.ProjectOnPlane(moveDirection, slopeHit.normal).normalized;
+        return Vector3.ProjectOnPlane(direction, slopeHit.normal).normalized;
     }
 
 
