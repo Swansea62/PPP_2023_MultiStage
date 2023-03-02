@@ -17,9 +17,6 @@ public class Movement : MonoBehaviour
     public bool wallrunning;
     public float slidingSpeed;
 
-    private float desiredMoveSpeed;
-    private float lastDesiredMoveSpeed;
-
     public float groundDrag;
 
     [Header("Jumping")]
@@ -144,7 +141,7 @@ public class Movement : MonoBehaviour
         if (wallrunning)
         {
             state = MovementState.wallrunning;
-            desiredMoveSpeed = wallrunSpeed;
+            moveSpeed = wallrunSpeed;
         }
 
         // Sliding Mode
@@ -154,11 +151,11 @@ public class Movement : MonoBehaviour
 
             if (OnSlope() && rb.velocity.y < 0.1f)
             {
-                desiredMoveSpeed = slidingSpeed;
+                moveSpeed = slidingSpeed;
             }
             else
             {
-                desiredMoveSpeed = sprintSpeed;
+                moveSpeed = sprintSpeed;
             }
         }
 
@@ -166,20 +163,20 @@ public class Movement : MonoBehaviour
         else if (Input.GetKey(crouchKey))
         {
             state = MovementState.crouching;
-            desiredMoveSpeed = crouchSpeed;
+            moveSpeed = crouchSpeed;
         }
         // Sprinting Mode
         else if (grounded && Input.GetKey(sprintKey))
         {
             state = MovementState.sprinting;
-            desiredMoveSpeed = sprintSpeed;
+            moveSpeed = sprintSpeed;
         }
 
         // Walking Mode
         else if (grounded)
         {
             state = MovementState.walking;
-            desiredMoveSpeed = walkSpeed;
+            moveSpeed = walkSpeed;
         }
 
         // Air Mode
@@ -188,35 +185,6 @@ public class Movement : MonoBehaviour
             state = MovementState.air;
         }
 
-        // Check if desiredMoveSpeed has changd drastically
-        if (Mathf.Abs(desiredMoveSpeed - lastDesiredMoveSpeed) > 4f && moveSpeed != 0)
-        {
-            StopAllCoroutines();
-            StartCoroutine(SmoothlyLerpMoveSpeed());
-        }
-        else
-        {
-            moveSpeed = desiredMoveSpeed;
-        }
-
-        lastDesiredMoveSpeed = desiredMoveSpeed;
-    }
-
-    private IEnumerator SmoothlyLerpMoveSpeed()
-    {
-        // Smoothly lerp moveSpeed to desired value
-        float time = 0;
-        float difference = Mathf.Abs(desiredMoveSpeed - moveSpeed);
-        float startValue = moveSpeed;
-
-        while (time < difference)
-        {
-            moveSpeed = Mathf.Lerp(startValue, desiredMoveSpeed, time / difference);
-            time += Time.deltaTime;
-            yield return null;
-        }
-
-        moveSpeed = desiredMoveSpeed;
     }
 
 
