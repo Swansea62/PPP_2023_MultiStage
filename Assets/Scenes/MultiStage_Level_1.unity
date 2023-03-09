@@ -9623,7 +9623,7 @@ MonoBehaviour:
   currentTime: 0
   countDown: 0
   hasFormat: 1
-  format: 2
+  format: 1
 --- !u!4 &1100203969
 Transform:
   m_ObjectHideFlags: 0
@@ -17091,6 +17091,7 @@ MonoBehaviour:
   sprintSpeed: 10
   wallrunSpeed: 8
   wallrunning: 0
+  slidingSpeed: 0
   groundDrag: 5
   jumpForce: 8
   jumpCooldown: 0.25
@@ -17108,6 +17109,7 @@ MonoBehaviour:
   maxSlopeAngle: 80
   orientation: {fileID: 70173713}
   state: 0
+  sliding: 0
 --- !u!54 &1632164635
 Rigidbody:
   m_ObjectHideFlags: 0
