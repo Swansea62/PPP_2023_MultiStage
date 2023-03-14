@@ -26,11 +26,12 @@ public class MovingPlatform : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
         elapsedTime += Time.deltaTime;
 
         float elapsedPercentage = elapsedTime / timeToWaypoint;
+        elapsedPercentage = Mathf.SmoothStep(0, 1, elapsedPercentage);
         transform.position = Vector3.Lerp(previousWaypoint.position, targetWaypoint.position, elapsedPercentage);
 
         if (elapsedPercentage >= 1)
@@ -49,5 +50,17 @@ public class MovingPlatform : MonoBehaviour
 
         float distanceToWaypoint = Vector3.Distance(previousWaypoint.position, targetWaypoint.position);
         timeToWaypoint = distanceToWaypoint / speed;
+    }
+
+    void OnTriggerEnter(Collider other)
+    {
+        if (!other.CompareTag("Player")) return;
+        other.transform.parent = transform;
+    }
+
+    void OnTriggerExit(Collider other)
+    {
+        if (!other.CompareTag("Player")) return;
+        other.transform.parent = null;
     }
 }
