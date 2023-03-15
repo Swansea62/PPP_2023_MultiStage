@@ -475,9 +475,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-<<<<<<< HEAD
 --- !u!1 &1567651239
-=======
 --- !u!114 &851554560
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -492,7 +490,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   splashImg: {fileID: 432721009}
 --- !u!1 &1125860404
->>>>>>> e617998a82713e6c8b8d3135497825eebb9eabb7
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -500,7 +497,6 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-<<<<<<< HEAD
   - component: {fileID: 1567651240}
   - component: {fileID: 1567651242}
   - component: {fileID: 1567651241}
@@ -677,31 +673,23 @@ GameObject:
   - component: {fileID: 1933319575}
   m_Layer: 0
   m_Name: LevelChanger
-=======
   - component: {fileID: 1125860407}
   - component: {fileID: 1125860406}
   - component: {fileID: 1125860405}
   m_Layer: 0
   m_Name: EventSystem
->>>>>>> e617998a82713e6c8b8d3135497825eebb9eabb7
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
-<<<<<<< HEAD
 --- !u!95 &1933319575
 Animator:
   serializedVersion: 3
-=======
---- !u!114 &1125860405
-MonoBehaviour:
->>>>>>> e617998a82713e6c8b8d3135497825eebb9eabb7
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 1933319574}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
@@ -715,7 +703,6 @@ MonoBehaviour:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!4 &1933319576
-=======
   m_GameObject: {fileID: 1125860404}
   m_Enabled: 1
   m_EditorHideFlags: 0
@@ -745,13 +732,11 @@ MonoBehaviour:
   m_sendNavigationEvents: 1
   m_DragThreshold: 10
 --- !u!4 &1125860407
->>>>>>> e617998a82713e6c8b8d3135497825eebb9eabb7
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-<<<<<<< HEAD
   m_GameObject: {fileID: 1933319574}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -760,7 +745,6 @@ Transform:
   - {fileID: 1854586504}
   m_Father: {fileID: 0}
   m_RootOrder: 2
-=======
   m_GameObject: {fileID: 1125860404}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
@@ -768,5 +752,4 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
->>>>>>> e617998a82713e6c8b8d3135497825eebb9eabb7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
