@@ -10,6 +10,8 @@ public static class Loader
         GameOverScreen,
         MainMenuScreen,
         OptionsScreen,
+        VolumeScreen,
+        MouseScreen,
         Scoreboard,
         Controls
     }
