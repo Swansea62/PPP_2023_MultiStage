@@ -21,4 +21,9 @@ public static class Loader
     {
         SceneManager.LoadScene(scene.ToString());
     }
+
+    public static void Reload(Scene scene)
+    {
+        SceneManager.LoadSceneAsync(scene.ToString());
+    }
 }
