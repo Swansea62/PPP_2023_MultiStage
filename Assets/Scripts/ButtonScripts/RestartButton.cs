@@ -15,7 +15,7 @@ public class RestartButton : MonoBehaviour, IPointerClickHandler
     {
         if (pointerEventData.button == PointerEventData.InputButton.Left)
         {
-            Loader.Reload(Loader.Scene.MultiStage_Level_1);
+            Loader.Load(Loader.Scene.MultiStage_Level_1);
         }
     }
 }

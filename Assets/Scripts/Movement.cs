@@ -280,14 +280,5 @@ public class Movement : MonoBehaviour
     {
         return Vector3.ProjectOnPlane(direction, slopeHit.normal).normalized;
     }
-
-
-    private void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name == "PitFloor")
-        {
-            Loader.Load(Loader.Scene.GameOverScreen);
-        }
-    }
 }
 
