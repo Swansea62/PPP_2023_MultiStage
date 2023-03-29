@@ -6,24 +6,8 @@ using TMPro;
 public class GameMaster : MonoBehaviour
 {
     private static GameMaster instance;
-    private static Vector3 originalPos = new Vector3(0, 1.5f, -10);
+    private static Vector3 originalPos = new Vector3(0.0f, 1.5f, -10.0f);
     private static Vector3 lastCheckpointPos = originalPos;
-
-    //private static float currentTime = Stopwatch.GetComponent<Stopwatch>();
-
-    // void Awake()
-    // {
-    //     if (instance == null)
-    //     {
-            
-    //         instance = this;
-    //         DontDestroyOnLoad(instance);
-    //     }
-    //     else
-    //     {
-    //         Destroy(gameObject);
-    //     }
-    // }
 
     public static Vector3 RestartCheckpointPos(){
         lastCheckpointPos = originalPos;

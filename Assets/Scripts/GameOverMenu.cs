@@ -5,7 +5,6 @@ using UnityEngine.SceneManagement;
 
 public class GameOverMenu : MonoBehaviour
 {
-    // private GameMaster gm;
     public GameObject gameOverMenu;
     public bool isOver;
 

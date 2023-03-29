@@ -6,6 +6,6 @@ public class EndGoal : MonoBehaviour
 {
     void OnTriggerEnter()
     {
-        Loader.Load(Loader.Scene.LevelCompleteScreen);
+        
     }
 }
