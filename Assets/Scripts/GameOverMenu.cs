@@ -7,11 +7,18 @@ public class GameOverMenu : MonoBehaviour
 {
     public GameObject gameOverMenu;
     public bool isOver;
-    public bool isPaused;
 
     void Start()
     {
         gameOverMenu.SetActive(false);
+    }
+
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "PitFloor")
+        {
+            isOver = true;
+        }
     }
 
     void Update()
@@ -25,19 +32,10 @@ public class GameOverMenu : MonoBehaviour
         }
     }
 
-    public void OnCollisionEnter(Collision collision)
-    {
-        if (collision.gameObject.name == "PitFloor")
-        {
-            isOver = true;
-        }
-    }
-
     public void RestartGame()
     {
         Time.timeScale = 1f;
         Loader.Load(Loader.Scene.MultiStage_Level_1);
-        isPaused = false;
         isOver = false;
     }
 }

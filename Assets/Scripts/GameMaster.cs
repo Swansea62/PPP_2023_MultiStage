@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameMaster : MonoBehaviour
 {
     private static GameMaster instance;
+    public Vector3 originalPos;
     public Vector3 lastCheckpointPos;
 
     void Awake()

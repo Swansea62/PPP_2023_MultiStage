@@ -7,7 +7,6 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseMenu;
     public bool isPaused;
-    public bool isOver;
 
     // Start is called before the first frame update
     void Start()
@@ -19,7 +18,6 @@ public class PauseMenu : MonoBehaviour
     {
         if (collision.gameObject.name == "PitFloor")
         {
-            isOver = true;
             pauseMenu.SetActive(false);
             isPaused = false;
         }
@@ -37,14 +35,6 @@ public class PauseMenu : MonoBehaviour
             else
             {
                 PauseGame();
-            }
-        }
-        else
-        {
-            if (isOver)
-            {
-                isPaused = false;
-                pauseMenu.SetActive(false);
             }
         }
     }

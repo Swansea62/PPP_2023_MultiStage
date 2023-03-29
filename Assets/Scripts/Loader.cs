@@ -13,7 +13,8 @@ public static class Loader
         VolumeScreen,
         MouseScreen,
         Scoreboard,
-        Controls
+        Controls,
+        LevelCompleteScreen
     }
 
 
