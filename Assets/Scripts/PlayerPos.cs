@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class PlayerPos : MonoBehaviour
 {
-    private GameMaster gm;
+    // private GameMaster gm;
 
     void Start()
     {
-        gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
-        transform.position = gm.originalPos;
+        // gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
+        // transform.position = gm.originalPos;
+        transform.position = GameMaster.GetCheckpointPos();
     }
 }

@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameOverMenu : MonoBehaviour
 {
+    // private GameMaster gm;
     public GameObject gameOverMenu;
     public bool isOver;
 
@@ -36,6 +37,15 @@ public class GameOverMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         Loader.Load(Loader.Scene.MultiStage_Level_1);
+        transform.position = GameMaster.RestartCheckpointPos();
+        isOver = false;
+    }
+
+    public void RestartFromCheckpoint()
+    {
+        Time.timeScale = 1f;
+        Loader.Load(Loader.Scene.MultiStage_Level_1);
+        transform.position = GameMaster.GetCheckpointPos();
         isOver = false;
     }
 }
