@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class Checkpoint : MonoBehaviour
 {
-    // private GameMaster gm;
-
     void Start()
     {
         // gm = GameObject.FindGameObjectWithTag("GM").GetComponent<GameMaster>();
@@ -16,6 +14,7 @@ public class Checkpoint : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             GameMaster.SetCheckpointPos(transform.position);
+            //GameMaster.SetTime(time);
         }
     }
 }

@@ -58,6 +58,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         Loader.Load(Loader.Scene.MultiStage_Level_1);
+        transform.position = GameMaster.RestartCheckpointPos();
         isPaused = false;
     }
 
