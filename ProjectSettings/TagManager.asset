@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GM
   - stopwatch
+  - LevelComplete
   layers:
   - Default
   - TransparentFX
