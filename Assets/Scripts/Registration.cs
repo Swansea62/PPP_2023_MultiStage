@@ -40,11 +40,13 @@ public class Registration : MonoBehaviour
 
     IEnumerator Register() 
 {
-    List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
-    formData.Add(new MultipartFormDataSection("name", nameField.text));
-    formData.Add(new MultipartFormDataSection("password", passwordField.text));
+    // List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
+    WWWForm formData = new WWWForm();
 
-    UnityWebRequest www = UnityWebRequest.Post("http://localhost/sqlconnect/register.php", formData);
+    formData.AddField("username", nameField.text);
+    formData.AddField("password", passwordField.text);
+
+    UnityWebRequest www = UnityWebRequest.Post("http://localhost:8888/register", formData);
     yield return www.SendWebRequest();
 
     if (www.result == UnityWebRequest.Result.Success)
