@@ -50,7 +50,7 @@ public class Registration : MonoBehaviour
     if (www.result == UnityWebRequest.Result.Success)
     {
         Debug.Log("User created successfully.");
-        UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+        UnityEngine.SceneManagement.SceneManager.LoadScene(2);
     }
     else
     {

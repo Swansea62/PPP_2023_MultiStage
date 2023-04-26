@@ -26,6 +26,7 @@ public class Login : MonoBehaviour
         UnityWebRequest www = UnityWebRequest.Post("http://localhost/sqlconnect/login.php", formData);
         yield return www.SendWebRequest();
         string result = www.downloadHandler.text;
+        // Debug.Log("Result: " + result);
         if(result[0] == '0')
         {
             DBManager.username = nameField.text;
