@@ -6,9 +6,11 @@ using UnityEngine.SceneManagement;
 public static class Loader
 {
     public enum Scene {
+        MainMenuScreen,
+        RegisterMenu,
+        LoginMenu,
         MultiStage_Level_1,
         GameOverScreen,
-        MainMenuScreen,
         OptionsScreen,
         VolumeScreen,
         MouseScreen,
