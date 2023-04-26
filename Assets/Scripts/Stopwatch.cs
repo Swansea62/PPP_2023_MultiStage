@@ -8,6 +8,8 @@ public class Stopwatch : MonoBehaviour
     [Header("Component")]
     public TextMeshProUGUI stopwatchText;
 
+    public GameObject LevelCompletion;
+
     [Header("Stopwatch Settings")]
     public float currentTime;
     public bool countDown;
@@ -34,6 +36,19 @@ public class Stopwatch : MonoBehaviour
     private void SetStopwatchText()
     {
         stopwatchText.text = hasFormat ? currentTime.ToString(stopwatchFormats[format]) : currentTime.ToString();
+    }
+
+    public void OnTriggerEnter(Collider collision)
+    {
+        if(LevelCompletion.gameObject.CompareTag("LevelComplete"))
+        {
+            SetStopwatchPos();
+        }
+    }
+
+    private void SetStopwatchPos()
+    {
+        stopwatchText.transform.position = new Vector3(806.0f, -407.0f, 0.0f);
     }
 }
 

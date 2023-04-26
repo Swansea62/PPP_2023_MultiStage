@@ -14,6 +14,15 @@ public class PauseMenu : MonoBehaviour
         pauseMenu.SetActive(false);
     }
 
+    public void OnCollisionEnter(Collision collision)
+    {
+        if (collision.gameObject.name == "PitFloor")
+        {
+            pauseMenu.SetActive(false);
+            isPaused = false;
+        }
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -49,6 +58,7 @@ public class PauseMenu : MonoBehaviour
     {
         Time.timeScale = 1f;
         Loader.Load(Loader.Scene.MultiStage_Level_1);
+        transform.position = GameMaster.RestartCheckpointPos();
         isPaused = false;
     }
 

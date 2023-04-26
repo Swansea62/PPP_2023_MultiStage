@@ -12,6 +12,8 @@ public static class Loader
         MultiStage_Level_1,
         GameOverScreen,
         OptionsScreen,
+        VolumeScreen,
+        MouseScreen,
         Scoreboard,
         Controls
     }
