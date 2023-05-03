@@ -44,7 +44,7 @@ public class Registration : MonoBehaviour
     formData.Add(new MultipartFormDataSection("name", nameField.text));
     formData.Add(new MultipartFormDataSection("password", passwordField.text));
 
-    UnityWebRequest www = UnityWebRequest.Post("http://localhost/sqlconnect/register.php", formData);
+    UnityWebRequest www = UnityWebRequest.Post("https://multistage.nfshost.com/sqlconnect/register.php", formData);
     yield return www.SendWebRequest();
 
     if (www.result == UnityWebRequest.Result.Success)

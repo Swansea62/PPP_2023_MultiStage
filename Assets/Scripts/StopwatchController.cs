@@ -56,7 +56,7 @@ public class StopwatchController : MonoBehaviour
     }
 
     // Made a new request and specificed the method as a POST
-    UnityWebRequest request = UnityWebRequest.Post("http://localhost/sqlconnect/save_score.php", formData);
+    UnityWebRequest request = UnityWebRequest.Post("https://multistage.nfshost.com/sqlconnect/save_score.php", formData);
     request.SendWebRequest();
 
     // Checking if there was an error with the request

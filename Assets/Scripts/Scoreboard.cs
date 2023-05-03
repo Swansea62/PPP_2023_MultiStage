@@ -78,7 +78,7 @@ public class Scoreboard : MonoBehaviour
     // Gets the scores from the scoreboard.php script and update the assigned text fields in the scene
     private IEnumerator GetScores()
     {
-        using (UnityWebRequest www = UnityWebRequest.Get("http://localhost/sqlconnect/scoreboard.php"))
+        using (UnityWebRequest www = UnityWebRequest.Get("https://multistage.nfshost.com/sqlconnect/scoreboard.php"))
         {
             yield return www.SendWebRequest();
 
