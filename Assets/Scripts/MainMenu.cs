@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.Networking;
 
 public class MainMenu : MonoBehaviour
 {
@@ -18,11 +19,18 @@ public class MainMenu : MonoBehaviour
 
    public void GoToRegister()
    {
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(2);
    }
 
    public void GoToLogin()
    {
-        SceneManager.LoadScene(2);
+        SceneManager.LoadScene(3);
    }
+
+   public void LogOut()
+   {
+      DBManager.LogOut();
+      SceneManager.LoadScene(1);
+   }
+
 }

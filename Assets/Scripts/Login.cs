@@ -9,7 +9,6 @@ public class Login : MonoBehaviour
 
     public InputField nameField;
     public InputField passwordField;
-
     public Button submitButton;
 
     public void CallLogin() 
@@ -30,8 +29,8 @@ public class Login : MonoBehaviour
         if(result[0] == '0')
         {
             DBManager.username = nameField.text;
-            DBManager.score = int.Parse(result.Split('\t')[1]);
-            UnityEngine.SceneManagement.SceneManager.LoadScene(0);
+            DBManager.score = result.Split('\t')[1];
+            UnityEngine.SceneManagement.SceneManager.LoadScene(1);
         }
         else
         {

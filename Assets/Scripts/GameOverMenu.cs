@@ -40,11 +40,14 @@ public class GameOverMenu : MonoBehaviour
         isOver = false;
     }
 
-    public void RestartFromCheckpoint()
+    public void RestartFromCheckpoint() //Commented and added code so scene did not full restart from checkpoint
     {
         Time.timeScale = 1f;
-        Loader.Load(Loader.Scene.MultiStage_Level_1);
+        // Loader.Load(Loader.Scene.MultiStage_Level_1);
         transform.position = GameMaster.GetCheckpointPos();
+        gameOverMenu.SetActive(false);
         isOver = false;
+        Cursor.lockState = CursorLockMode.Confined;
+        Cursor.visible = false;
     }
 }
