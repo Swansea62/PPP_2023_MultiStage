@@ -16,6 +16,7 @@ public class Login : MonoBehaviour
         StartCoroutine(LoginPlayer());
     }
 
+    //Creating the login form and sending it to the php script
     IEnumerator LoginPlayer()
     {
         List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
@@ -38,6 +39,7 @@ public class Login : MonoBehaviour
         }
     }
 
+    //Verifying username and password lengths to active the suvbmit button
     public void VerifyInputs()
     {
         submitButton.interactable = (nameField.text.Length >= 8 && passwordField.text.Length >= 8);

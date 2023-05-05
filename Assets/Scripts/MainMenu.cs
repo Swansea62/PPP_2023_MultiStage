@@ -8,6 +8,9 @@ using UnityEngine.Networking;
 public class MainMenu : MonoBehaviour
 {
    public Text playerDisplay;
+   public Button loginButton;
+   public Button registerButton;
+
 
    private void Start()
    {
@@ -15,6 +18,8 @@ public class MainMenu : MonoBehaviour
       {
          playerDisplay.text = "Player: " + DBManager.username;
       }
+      loginButton.interactable = !(DBManager.LoggedIn);
+      registerButton.interactable = !(DBManager.LoggedIn);
    }
 
    public void GoToRegister()

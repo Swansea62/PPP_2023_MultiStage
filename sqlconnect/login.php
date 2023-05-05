@@ -37,8 +37,4 @@
 
     echo "0\t" . $existinginfo["score"];
     
-
-
-
-
 ?>

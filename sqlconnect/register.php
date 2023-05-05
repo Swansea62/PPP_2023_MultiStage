@@ -38,5 +38,4 @@ $con = mysqli_connect('multistagedb.db', 'ahughes', 'sX6VzxMtrg4*E', 'unityacces
 
     echo ("0");
 
-
 ?>
