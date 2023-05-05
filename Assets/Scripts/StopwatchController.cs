@@ -11,6 +11,7 @@ public class StopwatchController : MonoBehaviour
     public GameObject endGoal;
     private float startTime;
     private bool isRunning;
+    public TextMeshProUGUI CompletedTimeText;
 
     private void Start()
     {
@@ -40,7 +41,9 @@ public class StopwatchController : MonoBehaviour
             float timeTaken = Time.time - startTime;
             Debug.Log("Level completed in " + timeTaken + " seconds");
             SendScore(timeTaken);
+            CompletedTimeText.text = timeTaken.ToString();
         }
+
     }
 
    private void SendScore(float score)
@@ -56,7 +59,7 @@ public class StopwatchController : MonoBehaviour
     }
 
     // Made a new request and specificed the method as a POST
-    UnityWebRequest request = UnityWebRequest.Post("http://localhost/sqlconnect/save_score.php", formData);
+    UnityWebRequest request = UnityWebRequest.Post("https://multistage.nfshost.com/sqlconnect/save_score.php", formData);
     request.SendWebRequest();
 
     // Checking if there was an error with the request

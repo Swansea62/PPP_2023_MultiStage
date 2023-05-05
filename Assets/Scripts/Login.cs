@@ -16,13 +16,14 @@ public class Login : MonoBehaviour
         StartCoroutine(LoginPlayer());
     }
 
+    //Creating the login form and sending it to the php script
     IEnumerator LoginPlayer()
     {
         List<IMultipartFormSection> formData = new List<IMultipartFormSection>();
         formData.Add(new MultipartFormDataSection("name", nameField.text));
         formData.Add(new MultipartFormDataSection("password", passwordField.text));
 
-        UnityWebRequest www = UnityWebRequest.Post("http://localhost/sqlconnect/login.php", formData);
+        UnityWebRequest www = UnityWebRequest.Post("https://multistage.nfshost.com/sqlconnect/login.php", formData);
         yield return www.SendWebRequest();
         string result = www.downloadHandler.text;
         // Debug.Log("Result: " + result);
@@ -38,6 +39,7 @@ public class Login : MonoBehaviour
         }
     }
 
+    //Verifying username and password lengths to active the suvbmit button
     public void VerifyInputs()
     {
         submitButton.interactable = (nameField.text.Length >= 8 && passwordField.text.Length >= 8);

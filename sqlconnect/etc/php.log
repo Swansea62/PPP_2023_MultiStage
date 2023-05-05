@@ -1,0 +1,7 @@
+2: Namecheck started 
+Mohammed 
+secret123 
+2: Namecheck started 
+rfggdfgfdgdfgdfgfdgdf 
+dfgdfgdfgdfg 
+INSERT INTO players (username, hash, salt) VALUES ('rfggdfgfdgdfgdfgfdgdf', '$5$rounds=5000$steamedhamsrfggd$EsABDn5vtmaDUfGn9cWlcGGy5ycsK97WcRW3nhkjoi8', '$5$rounds=5000$steamedhamsrfggdfgfdgdfgdfgfdgdf$'); 
